@@ -1,0 +1,16 @@
+.grid-currencies {
+  .amount-header {
+    font-size: 1.4rem;
+    color: #898989;
+    margin-bottom: 2rem;
+    & span {
+      margin: 0.5rem;
+    }
+  }
+  .amount-content {
+    h3 {
+      font-size: 2rem;
+      color: #06283d;
+    }
+  }
+}

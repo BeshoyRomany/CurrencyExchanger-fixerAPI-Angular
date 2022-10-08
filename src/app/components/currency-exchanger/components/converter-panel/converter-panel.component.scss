@@ -1,0 +1,33 @@
+.converter-panel{
+    margin-top: 6rem;
+    position: relative;
+    z-index: 1;
+    .coverter-form{
+        .coverter-form-actions{
+            .swap-action-ctrl{
+                cursor: pointer;
+                margin-bottom: 0.5rem;
+                i{
+                    font-size: 3rem;
+                }
+            }
+            .submit{
+                margin-top: 2rem;
+            }
+            .converted-value{
+                border:1px solid #ddd;
+                padding: 2rem;
+                margin-top: 2rem;
+                text-align: center;
+            }
+            .show-details{
+                margin-top: 2rem;
+                & a{
+                    text-decoration: none;
+                    color: #06283d;
+                }
+            }
+        }
+
+    }
+}

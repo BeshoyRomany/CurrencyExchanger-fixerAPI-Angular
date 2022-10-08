@@ -1,0 +1,42 @@
+$hoverAmount: 8%;
+$activeAmount: 2%;
+//Global color
+$default-shadow-color:#ddd;
+$header-shadow-color: #c3c3c3;
+$light-icon: #fff;
+$light-color:#fff;
+//Global backgrounds
+$default-light-background: #fff;
+
+//Buttons color
+$primary-color: #06283D;
+$secondary-color: #256D85;
+//Buttons shadow
+$primary-btn-shadow-color: #042133;
+$secondary-btn-shadow-color:#0d4162;
+
+//Button Hover Effect
+$primary-btn-bk-color-hover:lighten($primary-color, $hoverAmount);
+$secondary-btn-bk-color-hover: lighten($secondary-color, $hoverAmount);
+
+//Button Active Effect
+$primary-btn-bk-color-active:darken($primary-color, $activeAmount);
+$secondary-btn-bk-color-active: darken($secondary-color, $activeAmount);
+
+//Buttons fonts
+$primary-btn-font-color: #ddd;
+$secondary-btn-font-color: #ddd;
+
+//Panels
+$panel-header-bk-color: #256D85;
+
+
+
+//Classes
+.primary-color{
+    color: $primary-color
+}
+
+.secondary-color{
+    color: $secondary-color
+}

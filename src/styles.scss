@@ -1,2 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
-@import './assets/theme/index.scss';
+@import "./assets/theme/index.scss";
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%; /* Sets up the Base 10 stuff */
+  body {
+    margin: 0;
+    padding: 0;
+  }
+}

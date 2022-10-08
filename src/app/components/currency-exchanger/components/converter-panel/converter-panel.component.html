@@ -1,1 +1,48 @@
-<p>converter-panel works!</p>
+<section class="converter-panel panel">
+    <header class="panel-header flex-row">
+        <i class="las la-sync"></i>
+        <h3 class="font-medium">Currency Exchanger</h3>
+    </header>
+    <div class="panel-content">
+        <form class="coverter-form">
+            <div class="converter-form-content flex-row">
+                <div class="coverter-form-amount w-40 m-3">
+                    <div class="form-field flex-column">
+                        <label class="font-medium" for="amount">Amount</label>
+                        <input class="font-medium" type="text" placeholder="Enter a currency amount" name="amount">
+                    </div>
+                </div>
+                <div class="coverter-form-actions w-60 m-3">
+                    <div class="currency-swap flex-row-end">
+                        <div class="form-field flex-column w-40">
+                            <label class="font-medium" for="amount">From</label>
+                            <select class="font-medium" placeholder="Enter a currency amount" name="from">
+                                <option value="usd">USD</option>
+                                <option value="gbp">GBP</option>
+                            </select>
+                        </div>
+                        <div class="swap-action-ctrl flex-row-center w-20">
+                            <i class="las la-exchange-alt primary-color"></i>
+                        </div>
+                        <div class="form-field flex-column w-40">
+                            <label class="font-medium" for="amount">To</label>
+                            <select class="font-medium" placeholder="Enter a currency amount" name="to">
+                                <option value="usd">USD</option>
+                                <option value="gbp">GBP</option>
+                            </select>
+                        </div>
+                    </div>
+                    <button type="button" class="btn btn-secondary btn-icon font-medium w-100 submit"><i
+                            class="las la-sync"></i><span>Convert</span></button>
+
+                    <div class="converted-value">
+                        <h2>€50</h2>
+                    </div>
+
+                    <h3 class="show-details text-center"><a href="#">Show Details</a></h3>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</section>

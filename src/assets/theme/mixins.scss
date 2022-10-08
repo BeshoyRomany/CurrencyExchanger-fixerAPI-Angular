@@ -1,0 +1,56 @@
+//Alignments mixins
+//Flex row
+@mixin flex-row{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+//Flex row space between
+@mixin flex-row-between {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+//Flex row center
+@mixin flex-row-center{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+//Flex row center
+@mixin flex-row-end{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-end;
+}
+//Flex row space around
+@mixin flex-row-around{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+
+//Flex column
+@mixin flex-column{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+
+
+//Button Mixins
+@mixin btn{
+    padding:1rem;
+    background-color: transparent;
+    border: none;
+    box-shadow: .1rem .1rem ;
+    cursor: pointer;
+    min-width: 15rem;
+    transition: .2s ease-in-out;
+}
