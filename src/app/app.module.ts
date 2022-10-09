@@ -9,7 +9,8 @@ import { ConverterPanelComponent } from './components/currency-exchanger/compone
 import { PopularCurrenciesGridComponent } from './components/currency-exchanger/components/popular-currencies-grid/popular-currencies-grid.component';
 import { ConvertedCurrencyDetailsComponent } from './components/currency-exchanger/components/converted-currency-details/converted-currency-details.component';
 import { MonthlyRateChartComponent } from './components/currency-exchanger/components/converted-currency-details/components/monthly-rate-chart/monthly-rate-chart.component';
-
+import { NgApexchartsModule } from "ng-apexcharts";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,9 @@ import { MonthlyRateChartComponent } from './components/currency-exchanger/compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgApexchartsModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

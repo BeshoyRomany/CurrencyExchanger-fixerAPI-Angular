@@ -5,12 +5,15 @@ import { CurrencyExchangerComponent } from './components/currency-exchanger/curr
 
 const routes: Routes = [
   { path: '', component: CurrencyExchangerComponent },
-  { path: 'CurrencyExchangerDetails', component: ConvertedCurrencyDetailsComponent }
+  {
+    path: 'CurrencyExchangerDetails',
+    component: ConvertedCurrencyDetailsComponent,
+  },
+  {path: '**', component: CurrencyExchangerComponent, redirectTo: ''}
 ];
-
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
