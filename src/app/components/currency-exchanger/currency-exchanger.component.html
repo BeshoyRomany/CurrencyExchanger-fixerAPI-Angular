@@ -1,4 +1,4 @@
 <section class="container">
-    <converter-panel></converter-panel>
-    <popular-currencies-grid></popular-currencies-grid>
+    <converter-panel (selectedCurrencies)="onSelectedCurrencies($event)"></converter-panel>
+    <popular-currencies-grid [selectedCurrencies]="selectedCurrencies"></popular-currencies-grid>
 </section>

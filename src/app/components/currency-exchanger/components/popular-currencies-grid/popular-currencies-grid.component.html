@@ -3,138 +3,143 @@
         <i class="las la-coins"></i>
         <h3 class="font-medium">Most Popular currencies</h3>
     </header>
-    <div class="panel-content grid-currencies">
-        <div class="flex-row-between">
-            <div class="col w-100 m-1">
-                <div class="card">
-                    <div class="card-content text-center">
-                        <div class="amount-header">
-                            <span>USD</span>
-                            <span>TO</span>
-                            <span>EUR</span>
+    
+    <div class="panel-content grid-currencies" >
+        <img *ngIf="!isLoaded" class="most-popular-loader" src="assets/shimmers/most-popular-loader.svg" width="50" height="50" alt="">
+        <ng-container *ngIf="isLoaded">
+            <div class="flex-row-between">
+                <div class="col w-100 m-1">
+                    <div class="card">
+                        <div class="card-content text-center">
+                            <div class="amount-header">
+                                <span>{{selectedFromCurrencyLabel}}</span>
+                                <span>TO</span>
+                                <span>JPY</span>
+                            </div>
+                            <div class="amount-content">
+                                <h3>¥ {{mostPopularCurrencies.JPY}}</h3>
+                            </div>
                         </div>
-                        <div class="amount-content">
-                            <h3>€50</h3>
+                    </div>
+                </div>
+                <div class="col w-100 m-1">
+                    <div class="card">
+                        <div class="card-content text-center">
+                            <div class="amount-header">
+                                <span>{{selectedFromCurrencyLabel}}</span>
+                                <span>TO</span>
+                                <span>AUD</span>
+                            </div>
+                            <div class="amount-content">
+                                <h3>A$ {{mostPopularCurrencies.AUD}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col w-100 m-1">
+                    <div class="card">
+                        <div class="card-content text-center">
+                            <div class="amount-header">
+                                <span>{{selectedFromCurrencyLabel}}</span>
+                                <span>TO</span>
+                                <span>CAD</span>
+                            </div>
+                            <div class="amount-content">
+                                <h3>C$ {{mostPopularCurrencies.CAD}}</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col w-100 m-1">
-                <div class="card">
-                    <div class="card-content text-center">
-                        <div class="amount-header">
-                            <span>USD</span>
-                            <span>TO</span>
-                            <span>EUR</span>
+            <div class="flex-row-between">
+                <div class="col w-100 m-1">
+                    <div class="card">
+                        <div class="card-content text-center">
+                            <div class="amount-header">
+                                <span>{{selectedFromCurrencyLabel}}</span>
+                                <span>TO</span>
+                                <span>CHF</span>
+                            </div>
+                            <div class="amount-content">
+                                <h3>CHF {{mostPopularCurrencies.CHF}}</h3>
+                            </div>
                         </div>
-                        <div class="amount-content">
-                            <h3>€50</h3>
+                    </div>
+                </div>
+                <div class="col w-100 m-1">
+                    <div class="card">
+                        <div class="card-content text-center">
+                            <div class="amount-header">
+                                <span>{{selectedFromCurrencyLabel}}</span>
+                                <span>TO</span>
+                                <span>CNY</span>
+                            </div>
+                            <div class="amount-content">
+                                <h3>元 {{mostPopularCurrencies.CNY}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col w-100 m-1">
+                    <div class="card">
+                        <div class="card-content text-center">
+                            <div class="amount-header">
+                                <span>{{selectedFromCurrencyLabel}}</span>
+                                <span>TO</span>
+                                <span>HKD</span>
+                            </div>
+                            <div class="amount-content">
+                                <h3>HK$ {{mostPopularCurrencies.HKD}}</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col w-100 m-1">
-                <div class="card">
-                    <div class="card-content text-center">
-                        <div class="amount-header">
-                            <span>USD</span>
-                            <span>TO</span>
-                            <span>EUR</span>
+            <div class="flex-row-between">
+                <div class="col w-100 m-1">
+                    <div class="card">
+                        <div class="card-content text-center">
+                            <div class="amount-header">
+                                <span>{{selectedFromCurrencyLabel}}</span>
+                                <span>TO</span>
+                                <span>NZD</span>
+                            </div>
+                            <div class="amount-content">
+                                <h3>NZ$ {{mostPopularCurrencies.NZD}}</h3>
+                            </div>
                         </div>
-                        <div class="amount-content">
-                            <h3>€50</h3>
+                    </div>
+                </div>
+                <div class="col w-100 m-1">
+                    <div class="card">
+                        <div class="card-content text-center">
+                            <div class="amount-header">
+                                <span>{{selectedFromCurrencyLabel}}</span>
+                                <span>TO</span>
+                                <span>SEK</span>
+                            </div>
+                            <div class="amount-content">
+                                <h3>kr {{mostPopularCurrencies.SEK}}</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col w-100 m-1">
+                    <div class="card">
+                        <div class="card-content text-center">
+                            <div class="amount-header">
+                                <span>{{selectedFromCurrencyLabel}}</span>
+                                <span>TO</span>
+                                <span>KRW</span>
+                            </div>
+                            <div class="amount-content">
+                                <h3>₩ {{mostPopularCurrencies.KRW}}</h3>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="flex-row-between">
-            <div class="col w-100 m-1">
-                <div class="card">
-                    <div class="card-content text-center">
-                        <div class="amount-header">
-                            <span>USD</span>
-                            <span>TO</span>
-                            <span>EUR</span>
-                        </div>
-                        <div class="amount-content">
-                            <h3>€50</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col w-100 m-1">
-                <div class="card">
-                    <div class="card-content text-center">
-                        <div class="amount-header">
-                            <span>USD</span>
-                            <span>TO</span>
-                            <span>EUR</span>
-                        </div>
-                        <div class="amount-content">
-                            <h3>€50</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col w-100 m-1">
-                <div class="card">
-                    <div class="card-content text-center">
-                        <div class="amount-header">
-                            <span>USD</span>
-                            <span>TO</span>
-                            <span>EUR</span>
-                        </div>
-                        <div class="amount-content">
-                            <h3>€50</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="flex-row-between">
-            <div class="col w-100 m-1">
-                <div class="card">
-                    <div class="card-content text-center">
-                        <div class="amount-header">
-                            <span>USD</span>
-                            <span>TO</span>
-                            <span>EUR</span>
-                        </div>
-                        <div class="amount-content">
-                            <h3>€50</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col w-100 m-1">
-                <div class="card">
-                    <div class="card-content text-center">
-                        <div class="amount-header">
-                            <span>USD</span>
-                            <span>TO</span>
-                            <span>EUR</span>
-                        </div>
-                        <div class="amount-content">
-                            <h3>€50</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col w-100 m-1">
-                <div class="card">
-                    <div class="card-content text-center">
-                        <div class="amount-header">
-                            <span>USD</span>
-                            <span>TO</span>
-                            <span>EUR</span>
-                        </div>
-                        <div class="amount-content">
-                            <h3>€50</h3>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </ng-container>
+
     </div>
 </section>

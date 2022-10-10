@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
+import { SelectedCurrencies } from './models/selectedCurrencies.model';
 
 @Component({
   selector: 'currency-exchanger',
@@ -6,10 +7,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./currency-exchanger.component.scss']
 })
 export class CurrencyExchangerComponent implements OnInit {
-
-  constructor() { }
+  selectedCurrencies!: SelectedCurrencies;
+  constructor(private changeDetectorRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
+
+  }
+
+  onSelectedCurrencies(selectedCurrencies: SelectedCurrencies){
+    this.selectedCurrencies = selectedCurrencies;
+    this.changeDetectorRef.detectChanges();
   }
 
 }

@@ -4,39 +4,46 @@
         <h3 class="font-medium">Currency Exchanger</h3>
     </header>
     <div class="panel-content">
-        <form class="coverter-form">
+        <form class="coverter-form" (ngSubmit)="convertAmount(convertAmountForm)" #convertAmountForm="ngForm">
             <div class="converter-form-content flex-row">
                 <div class="coverter-form-amount w-40 m-3">
                     <div class="form-field flex-column">
                         <label class="font-medium" for="amount">Amount</label>
-                        <input class="font-medium" type="text" placeholder="Enter a currency amount" name="amount">
+                        <input class="font-medium" [(ngModel)]="defaultAmount" type="number" min="1"
+                            placeholder="Enter a currency amount"  #amount="ngModel" name="amount">
                     </div>
+                    <span *ngIf="amount.errors?.min" class="error-amount">The Minimum Amount is 1</span>
                 </div>
                 <div class="coverter-form-actions w-60 m-3">
                     <div class="currency-swap flex-row-end">
                         <div class="form-field flex-column w-40">
-                            <label class="font-medium" for="amount">From</label>
-                            <select class="font-medium" placeholder="Enter a currency amount" name="from">
-                                <option value="usd">USD</option>
-                                <option value="gbp">GBP</option>
+                            <label class="font-medium" for="from">From</label>
+                            <select (click)="setFromPrev(currencyFrom)" [disabled]="!amount.value || amount.errors?.min" class="font-medium"
+                                placeholder="Enter a currency amount" name="from" [(ngModel)]="currencyFrom"  (ngModelChange)="trackFrom($event)">
+                                <option *ngFor="let currency of currencies" [ngValue]="currency">
+                                    {{ currency.shortName }}
+                                </option>
                             </select>
                         </div>
-                        <div class="swap-action-ctrl flex-row-center w-20">
+                        <div class="swap-action-ctrl flex-row-center w-20" (click)="swapCurrencies(convertAmountForm)">
                             <i class="las la-exchange-alt primary-color"></i>
                         </div>
                         <div class="form-field flex-column w-40">
-                            <label class="font-medium" for="amount">To</label>
-                            <select class="font-medium" placeholder="Enter a currency amount" name="to">
-                                <option value="usd">USD</option>
-                                <option value="gbp">GBP</option>
+                            <label class="font-medium" for="to">To</label>
+                            <select (click)="setToPrev(currencyTo)" [disabled]="!amount.value || amount.errors?.min" class="font-medium"
+                                placeholder="Enter a currency amount" name="to" [(ngModel)]="currencyTo" (ngModelChange)="trackTo($event)">
+                                <option *ngFor="let currency of currencies" [ngValue]="currency">
+                                    {{ currency.shortName }}
+                                </option>
                             </select>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary btn-icon font-medium w-100 submit"><i
-                            class="las la-sync"></i><span>Convert</span></button>
+                    <button [disabled]="!amount.value || amount.errors?.min" type="submit"
+                        class="btn btn-primary btn-icon font-medium w-100 submit"><i
+                            class="las la-sync" [ngClass]="isConverting ? 'rotating': ''"></i><span>Convert</span></button>
 
                     <div class="converted-value">
-                        <h2>€50</h2>
+                        <h2>{{covertedAmountSymbol}} {{convertedCurrency}}</h2>
                     </div>
 
                     <h3 class="show-details text-center"><a (click)="showDetails()">Show Details</a></h3>
