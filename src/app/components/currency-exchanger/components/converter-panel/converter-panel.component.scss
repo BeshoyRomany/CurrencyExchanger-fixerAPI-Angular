@@ -4,23 +4,19 @@
     z-index: 1;
     .coverter-form{
         .coverter-form-actions{
-            .swap-action-ctrl{
-                cursor: pointer;
+            & .swap-action-ctrl{
                 margin-bottom: 0.5rem;
-                i{
-                    font-size: 3rem;
-                }
             }
-            .submit{
+            & .submit{
                 margin-top: 2rem;
             }
-            .converted-value{
+            & .converted-value{
                 border:1px solid #ddd;
                 padding: 2rem;
                 margin-top: 2rem;
                 text-align: center;
             }
-            .show-details{
+            & .show-details{
                 margin-top: 2rem;
                 & a{
                     text-decoration: none;

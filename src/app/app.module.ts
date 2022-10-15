@@ -9,9 +9,12 @@ import { ConverterPanelComponent } from './components/currency-exchanger/compone
 import { PopularCurrenciesGridComponent } from './components/currency-exchanger/components/popular-currencies-grid/popular-currencies-grid.component';
 import { ConvertedCurrencyDetailsComponent } from './components/currency-exchanger/components/converted-currency-details/converted-currency-details.component';
 import { MonthlyRateChartComponent } from './components/currency-exchanger/components/converted-currency-details/components/monthly-rate-chart/monthly-rate-chart.component';
-import { NgApexchartsModule } from "ng-apexcharts";
+import { NgApexchartsModule } from 'ng-apexcharts';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ButtonActionComponent } from './components/currency-exchanger/shared-components/button-action/button-action.component';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +23,8 @@ import { FormsModule } from '@angular/forms';
     ConverterPanelComponent,
     PopularCurrenciesGridComponent,
     ConvertedCurrencyDetailsComponent,
-    MonthlyRateChartComponent
+    MonthlyRateChartComponent,
+    ButtonActionComponent,
   ],
   imports: [
     FormsModule,
@@ -28,9 +32,11 @@ import { FormsModule } from '@angular/forms';
     AppRoutingModule,
     NgApexchartsModule,
     BrowserAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule,
+    MatSnackBarModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

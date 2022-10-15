@@ -9,11 +9,11 @@ $light-color:#fff;
 $default-light-background: #fff;
 
 //Buttons color
-$primary-color: #06283D;
-$secondary-color: #f44336;
+$primary-color: rgba(6, 40, 61, 0.85);
+$secondary-color: rgba(244, 67, 54, 1);
 //Buttons shadow
-$primary-btn-shadow-color: #06283D;
-$secondary-btn-shadow-color:#f44336;
+$primary-btn-shadow-color: rgba(6, 40, 61, 0.85);
+$secondary-btn-shadow-color:rgba(244, 67, 54, 1);
 
 //Button Hover Effect
 $primary-btn-bk-color-hover:lighten($primary-color, $hoverAmount);

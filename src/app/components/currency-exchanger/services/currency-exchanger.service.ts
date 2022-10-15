@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ApiBaseClientService } from '@currency-exchanger-core';
 import { forkJoin, Observable } from 'rxjs';
 import { ConvertRequest, ConvertResponse } from '../models/convert.model';
+import { MonthlyRatesResponse } from '../models/monthlyRate.model';
 
 @Injectable({
   providedIn: 'root',
@@ -37,7 +38,19 @@ export class CurrencyExchangerService {
       HKD: this.convertMostPoularCurrencies('HKD', selectedCurrency, amount),
       NZD: this.convertMostPoularCurrencies('NZD', selectedCurrency, amount),
       SEK: this.convertMostPoularCurrencies('SEK', selectedCurrency, amount),
-      KRW: this.convertMostPoularCurrencies('KRW', selectedCurrency, amount),
+      KRW: this.convertMostPoularCurrencies('KRW', selectedCurrency, amount)
     });
+  }
+
+  //Get Monthly Rate
+  getMonthlyRate(
+    startDate: string,
+    endDate: string,
+    base: string,
+    symbols: string
+  ): Observable<MonthlyRatesResponse> {
+    return this.apiClientService.get(
+      `fixer/timeseries?start_date=${startDate}&end_date=${endDate}&base=${base}&symbols=${symbols}`
+    );
   }
 }

@@ -9,6 +9,10 @@ export class MostPopularCurrenciesResponse {
     NZD!: CurrencyResult<number>;
     SEK!: CurrencyResult<number>;
   }
+  export interface CurrencyResult<T> {
+    result: T;
+  }
+
   export class MostPopularCurrencies {
     AUD!: number; 
     CAD!: number;
@@ -20,36 +24,3 @@ export class MostPopularCurrenciesResponse {
     NZD!: number;
     SEK!: number;
   }
-
-  export interface CurrencyResult<T> {
-    result: T;
-  }
-
-
-// AUD
-// : 
-// {success: true, query: {…}, info: {…}, date: '2022-10-10', result: 1.541385}
-// CAD
-// : 
-// {success: true, query: {…}, info: {…}, date: '2022-10-10', result: 1.336997}
-// CHF
-// : 
-// {success: true, query: {…}, info: {…}, date: '2022-10-10', result: 0.970103}
-// CNY
-// : 
-// {success: true, query: {…}, info: {…}, date: '2022-10-10', result: 6.944056}
-// HKD
-// : 
-// {success: true, query: {…}, info: {…}, date: '2022-10-10', result: 7.618856}
-// JPY
-// : 
-// {success: true, query: {…}, info: {…}, date: '2022-10-10', result: 141.415452}
-// KRW
-// : 
-// {success: true, query: {…}, info: {…}, date: '2022-10-10', result: 1387.181659}
-// NZD
-// : 
-// {success: true, query: {…}, info: {…}, date: '2022-10-10', result: 1.743921}
-// SEK
-// : 
-// {success: true, query: {…}, info: {…}, date: '2022-10-10', result: 10.972208}

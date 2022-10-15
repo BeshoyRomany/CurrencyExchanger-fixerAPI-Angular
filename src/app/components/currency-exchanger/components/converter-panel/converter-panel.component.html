@@ -1,16 +1,29 @@
 <section class="converter-panel panel">
     <header class="panel-header flex-row">
         <i class="las la-sync"></i>
-        <h3 class="font-medium">Currency Exchanger</h3>
+        <h3 class="font-medium">Currency Converter</h3>
     </header>
     <div class="panel-content">
         <form class="coverter-form" (ngSubmit)="convertAmount(convertAmountForm)" #convertAmountForm="ngForm">
-            <div class="converter-form-content flex-row">
+            <div *ngIf="isDetails" class="flex-row-between align-center currency-converter-header mb-1 ml-3 ">
+                <div class="flex-row align-center">
+                    <div class="cursor-pointer flex-row align-center mr-small" (click)="backHome()">
+                        <i class="las la-home big-icon mr-small"></i>
+                        <h3 class="show-details text-center">Home</h3>
+                    </div>
+                    <i class="las la-angle-right small-icon mr-small"></i>
+                    <i class="las la-coins big-icon mr-small"></i>
+                    <h3>{{currencyFrom.fullName}}</h3>
+                </div>
+                <!-- <button (click)="backHome()" class="btn btn-primary btn-icon font-medium m-1"><i
+                    class="las la-arrow-left"></i><span>Back Home</span></button> -->
+            </div>
+            <div class="converter-form-content flex-row flex-wrap">
                 <div class="coverter-form-amount w-40 m-3">
                     <div class="form-field flex-column">
                         <label class="font-medium" for="amount">Amount</label>
-                        <input class="font-medium" [(ngModel)]="defaultAmount" type="number" min="1"
-                            placeholder="Enter a currency amount"  #amount="ngModel" name="amount">
+                        <input class="font-medium" [(ngModel)]="currnecyAmount" type="number" min="1"
+                            placeholder="Enter a currency amount" #amount="ngModel" name="amount">
                     </div>
                     <span *ngIf="amount.errors?.min" class="error-amount">The Minimum Amount is 1</span>
                 </div>
@@ -18,35 +31,48 @@
                     <div class="currency-swap flex-row-end">
                         <div class="form-field flex-column w-40">
                             <label class="font-medium" for="from">From</label>
-                            <select (click)="setFromPrev(currencyFrom)" [disabled]="!amount.value || amount.errors?.min" class="font-medium"
-                                placeholder="Enter a currency amount" name="from" [(ngModel)]="currencyFrom"  (ngModelChange)="trackFrom($event)">
+                            <select (click)="setFromPrev(currencyFrom)"
+                                [disabled]="!amount.value || amount.errors?.min || isDetails" class="font-medium"
+                                placeholder="Enter a currency amount" name="from" [(ngModel)]="currencyFrom"
+                                (ngModelChange)="trackFrom($event)" [compareWith]="compareCurrencies">
                                 <option *ngFor="let currency of currencies" [ngValue]="currency">
                                     {{ currency.shortName }}
                                 </option>
                             </select>
                         </div>
-                        <div class="swap-action-ctrl flex-row-center w-20" (click)="swapCurrencies(convertAmountForm)">
-                            <i class="las la-exchange-alt primary-color"></i>
+                        <div class="swap-action-ctrl flex-row-center w-20"
+                            (click)="!isDetails ? swapCurrencies(convertAmountForm): null">
+                            <i [ngClass]="{'la-exchange-alt cursor-pointer': !isDetails, 'la-arrow-right': isDetails}"
+                                class="las primary-color big-icon"></i>
                         </div>
                         <div class="form-field flex-column w-40">
                             <label class="font-medium" for="to">To</label>
-                            <select (click)="setToPrev(currencyTo)" [disabled]="!amount.value || amount.errors?.min" class="font-medium"
-                                placeholder="Enter a currency amount" name="to" [(ngModel)]="currencyTo" (ngModelChange)="trackTo($event)">
-                                <option *ngFor="let currency of currencies" [ngValue]="currency">
+                            <select (click)="setToPrev(currencyTo)" [disabled]="!amount.value || amount.errors?.min"
+                                class="font-medium" placeholder="Enter a currency amount" name="to"
+                                [(ngModel)]="currencyTo" (ngModelChange)="trackTo($event)"
+                                [compareWith]="compareCurrencies">
+                                <option *ngFor="let currency of currencies" [ngValue]="currency"
+                                    [disabled]="isDetails && currency.shortName == currencyFrom.shortName">
                                     {{ currency.shortName }}
                                 </option>
                             </select>
+
                         </div>
                     </div>
                     <button [disabled]="!amount.value || amount.errors?.min" type="submit"
-                        class="btn btn-primary btn-icon font-medium w-100 submit"><i
-                            class="las la-sync" [ngClass]="isConverting ? 'rotating': ''"></i><span>Convert</span></button>
+                        class="btn btn-primary btn-icon font-medium w-100 submit"><i class="las la-sync"
+                            [ngClass]="isConverting ? 'rotating': ''"></i><span>Convert</span></button>
 
                     <div class="converted-value">
-                        <h2>{{covertedAmountSymbol}} {{convertedCurrency}}</h2>
+                        <h2>{{covertedAmountSymbol}} {{convertedCurrency | number:'2.1-3'}}</h2>
                     </div>
 
-                    <h3 class="show-details text-center"><a (click)="showDetails()">Show Details</a></h3>
+                    <h3 *ngIf="!isDetails" class="show-details text-center flex-row-center">
+                        <a (click)="showDetails()" class="flex-row align-center">
+                            <i class="las la-info-circle big-icon mr-small"></i>
+                            <span> Show Details</span>
+                        </a>
+                    </h3>
                 </div>
             </div>
 

@@ -8,6 +8,7 @@ const routes: Routes = [
   {
     path: 'CurrencyExchangerDetails',
     component: ConvertedCurrencyDetailsComponent,
+    
   },
   {path: '**', component: CurrencyExchangerComponent, redirectTo: ''}
 ];

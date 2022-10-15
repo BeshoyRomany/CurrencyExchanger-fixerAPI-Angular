@@ -9,8 +9,20 @@
 
 html {
   font-size: 62.5%; /* Sets up the Base 10 stuff */
+  @include respond(max-medium-device) {
+    font-size: 58%;
+  }
+  @include respond(max-tablets) {
+    font-size: 56%;
+  }
+  @include respond(max-phone) {
+    font-size: 54%;
+  }
   body {
     margin: 0;
     padding: 0;
   }
 }
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,21 +1,21 @@
 <section class="converter-panel panel">
-    <header class="panel-header flex-row align-center">
-      <i class="las la-history"></i>
-        <h3 class="font-medium">{{CurrencyName}} Currency History in 2021</h3>
-    </header>
-    <div class="panel-content">
-        <div id="chart">
-            <apx-chart
-              [series]="chartOptions.series"
-              [chart]="chartOptions.chart"
-              [dataLabels]="chartOptions.dataLabels"
-              [plotOptions]="chartOptions.plotOptions"
-              [yaxis]="chartOptions.yaxis"
-              [xaxis]="chartOptions.xaxis"
-              [legend]="chartOptions.legend"
-              [colors]="chartOptions.colors"
-              [grid]="chartOptions.grid"
-            ></apx-chart>
-          </div>
+  <header class="panel-header flex-row align-center">
+    <i class="las la-history"></i>
+    <h3 class="font-medium" *ngIf="selectedConvertedAmount">{{selectedConvertedAmount.selectedFrom.fullName}} TO
+      {{selectedConvertedAmount.selectedTo.fullName}} Currency History in {{pastYear}}</h3>
+  </header>
+  <div class="panel-content">
+    <div *ngIf="!chartLoaded && !notAvailable">
+      <img src="assets/shimmers/chart-loader.svg" width="100%" height="400" alt="">
     </div>
+    <div *ngIf="chartLoaded" id="chart">
+      <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [dataLabels]="chartOptions.dataLabels"
+        [plotOptions]="chartOptions.plotOptions" [yaxis]="chartOptions.yaxis" [xaxis]="chartOptions.xaxis"
+        [legend]="chartOptions.legend" [colors]="chartOptions.colors" [grid]="chartOptions.grid"></apx-chart>
+    </div>
+    <div class="flex-row align-center" *ngIf="notAvailable">
+      <i class="las la-exclamation-triangle big-icon mr-small"></i>
+      <h3>Content not avilibile</h3>
+  </div>
+  </div>
 </section>

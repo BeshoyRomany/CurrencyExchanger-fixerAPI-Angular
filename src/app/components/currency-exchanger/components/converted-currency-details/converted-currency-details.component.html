@@ -1,6 +1,15 @@
 <section class="container">
-    <converter-panel></converter-panel>
+    <converter-panel 
+        *ngIf="isDetails" 
+        [isDetails]="isDetails" 
+        [currencyFrom]="detailsData.selectedFrom"
+        [currencyTo]="detailsData.selectedTo" 
+        [currnecyAmount]="detailsData.amount"
+        [convertedCurrency]="detailsData.convertedCurrency" 
+        (selectedCurrencies)="onSelectedCurrencies($event)">
+    </converter-panel>
     <div class="flex-row w-100">
-        <monthly-rate-chart class="w-100 mr-2" [CurrencyName]="'EUR'"></monthly-rate-chart>
+        <monthly-rate-chart [selectedConvertedAmount]="detailsData" class="w-100" [CurrencyName]="'EUR'">
+        </monthly-rate-chart>
     </div>
 </section>

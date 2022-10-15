@@ -5,9 +5,9 @@
     </header>
     
     <div class="panel-content grid-currencies" >
-        <img *ngIf="!isLoaded" class="most-popular-loader" src="assets/shimmers/most-popular-loader.svg" width="50" height="50" alt="">
-        <ng-container *ngIf="isLoaded">
-            <div class="flex-row-between">
+        <img *ngIf="!isLoaded && !notAvailable" class="most-popular-loader" src="assets/shimmers/most-popular-loader.svg" width="50" height="50" alt="">
+        <ng-container *ngIf="isLoaded && mostPopularCurrencies">
+            <div class="flex-row-between flex-wrap">
                 <div class="col w-100 m-1">
                     <div class="card">
                         <div class="card-content text-center">
@@ -17,7 +17,7 @@
                                 <span>JPY</span>
                             </div>
                             <div class="amount-content">
-                                <h3>¥ {{mostPopularCurrencies.JPY}}</h3>
+                                <h3>¥ {{mostPopularCurrencies.JPY | number:'2.1-3'}}</h3>
                             </div>
                         </div>
                     </div>
@@ -31,7 +31,7 @@
                                 <span>AUD</span>
                             </div>
                             <div class="amount-content">
-                                <h3>A$ {{mostPopularCurrencies.AUD}}</h3>
+                                <h3>A$ {{mostPopularCurrencies.AUD | number:'2.1-3'}}</h3>
                             </div>
                         </div>
                     </div>
@@ -45,13 +45,13 @@
                                 <span>CAD</span>
                             </div>
                             <div class="amount-content">
-                                <h3>C$ {{mostPopularCurrencies.CAD}}</h3>
+                                <h3>C$ {{mostPopularCurrencies.CAD | number:'2.1-3'}}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="flex-row-between">
+            <div class="flex-row-between flex-wrap">
                 <div class="col w-100 m-1">
                     <div class="card">
                         <div class="card-content text-center">
@@ -61,7 +61,7 @@
                                 <span>CHF</span>
                             </div>
                             <div class="amount-content">
-                                <h3>CHF {{mostPopularCurrencies.CHF}}</h3>
+                                <h3>CHF {{mostPopularCurrencies.CHF | number:'2.1-3'}}</h3>
                             </div>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                                 <span>CNY</span>
                             </div>
                             <div class="amount-content">
-                                <h3>元 {{mostPopularCurrencies.CNY}}</h3>
+                                <h3>元 {{mostPopularCurrencies.CNY | number:'2.1-3'}}</h3>
                             </div>
                         </div>
                     </div>
@@ -89,13 +89,13 @@
                                 <span>HKD</span>
                             </div>
                             <div class="amount-content">
-                                <h3>HK$ {{mostPopularCurrencies.HKD}}</h3>
+                                <h3>HK$ {{mostPopularCurrencies.HKD | number:'2.1-3'}}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="flex-row-between">
+            <div class="flex-row-between flex-wrap">
                 <div class="col w-100 m-1">
                     <div class="card">
                         <div class="card-content text-center">
@@ -105,7 +105,7 @@
                                 <span>NZD</span>
                             </div>
                             <div class="amount-content">
-                                <h3>NZ$ {{mostPopularCurrencies.NZD}}</h3>
+                                <h3>NZ$ {{mostPopularCurrencies.NZD | number:'2.1-3'}}</h3>
                             </div>
                         </div>
                     </div>
@@ -119,7 +119,7 @@
                                 <span>SEK</span>
                             </div>
                             <div class="amount-content">
-                                <h3>kr {{mostPopularCurrencies.SEK}}</h3>
+                                <h3>kr {{mostPopularCurrencies.SEK | number:'2.1-3'}}</h3>
                             </div>
                         </div>
                     </div>
@@ -133,13 +133,16 @@
                                 <span>KRW</span>
                             </div>
                             <div class="amount-content">
-                                <h3>₩ {{mostPopularCurrencies.KRW}}</h3>
+                                <h3>₩ {{mostPopularCurrencies.KRW | number:'2.1-3'}}</h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </ng-container>
-
+        <div class="flex-row align-center" *ngIf="notAvailable">
+            <i class="las la-exclamation-triangle big-icon mr-small"></i>
+            <h3>Content not avilibile</h3>
+        </div>
     </div>
 </section>
